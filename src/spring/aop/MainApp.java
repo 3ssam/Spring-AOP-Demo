@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import spring.aop.DAOS.AccountDAO;
 import spring.aop.DAOS.MembershipDAO;
 import spring.aop.config.AOPDemoConfig;
+import spring.aop.models.Account;
 
 public class MainApp {
 
@@ -18,7 +19,8 @@ public class MainApp {
 		
 		AccountDAO theDAO = context.getBean("accountDAO", AccountDAO.class);
 		// call the business method
-		theDAO.addAccount();
+		Account account = new Account();
+		theDAO.addAccount(account);
 		
 		MembershipDAO membershipDAO  = context.getBean("membershipDAO", MembershipDAO.class);
 		// call the business method

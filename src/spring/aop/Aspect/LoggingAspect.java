@@ -29,8 +29,17 @@ public class LoggingAspect {
 	public void beforeAddAccountAdvice(JoinPoint joinPoint
 			,List<Account> result) {
 		System.out.println("\nAfter Executions ==========> \nresult is "+result);
+		ConveretToUpperCase(result);
 		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 		System.out.println("Method = "+signature);
+	}
+
+	private void ConveretToUpperCase(List<Account> result) {
+		for (Account account : result) {
+			String name = account.getName().toUpperCase();
+			account.setName(name);
+			System.out.println("Name = "+account.getName() + "   Level = "+account.getLevel());
+		}
 	}
 
 	

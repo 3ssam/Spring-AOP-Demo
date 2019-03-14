@@ -23,8 +23,13 @@ public class MainApp {
 		theDAO.addAccount(new Account());
 		theDAO.Check();
 		theDAO.Multiple();
+		
 		List<Account> c = theDAO.getAllData();
 		System.out.println("Data is ======> "+c);
+		System.out.println("Data is ======> Name = "+c.get(0).getName() + "   Level = "+c.get(0).getLevel());
+		System.out.println("Data is ======> Name = "+c.get(1).getName() + "   Level = "+c.get(1).getLevel());
+		System.out.println("Data is ======> Name = "+c.get(2).getName() + "   Level = "+c.get(2).getLevel());
+		
 		
 		
 		// close the context

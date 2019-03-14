@@ -20,6 +20,9 @@ public class AccountDAO {
 		accounts.add(account1);
 		accounts.add(account2);
 		accounts.add(account3);
+		System.out.println("Data is ======> Name = "+account1.getName() + "   Level = "+account1.getLevel());
+		System.out.println("Data is ======> Name = "+account2.getName() + "   Level = "+account2.getLevel());
+		System.out.println("Data is ======> Name = "+account3.getName() + "   Level = "+account3.getLevel());
 		return accounts;
 	}
 	public void addAccount(Account account) {

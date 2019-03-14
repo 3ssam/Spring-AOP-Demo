@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(-2)
-public class LoggingAspect {
+@Order(90)
+public class LogToCloudAdvice {
 	
 	@Before("spring.aop.Aspect.HelperMethodsOfAspect.AopPackageNoSetterOrGetter()")
-	public void beforeAddAccountAdvice() {
-		System.out.println("\nBefore Executions ==========> see again");
+	public void CloudValidtion() {
+		System.out.println("\nStarting Cloud ==========> The Cloud Is Run Now");
 	}
-	
+
 }

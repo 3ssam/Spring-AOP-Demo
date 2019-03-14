@@ -25,6 +25,7 @@ public class MainApp {
 		MembershipDAO membershipDAO  = context.getBean("membershipDAO", MembershipDAO.class);
 		// call the business method
 		membershipDAO.addNew();
+		membershipDAO.addIntegar(account,2,3);
 		
 		
 		// close the context

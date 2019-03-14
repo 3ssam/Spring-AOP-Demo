@@ -21,6 +21,8 @@ public class MainApp {
 		// call the business method
 		Account account = new Account();
 		theDAO.addAccount(account);
+		theDAO.Check();
+		theDAO.Multiple();
 		
 		MembershipDAO membershipDAO  = context.getBean("membershipDAO", MembershipDAO.class);
 		// call the business method

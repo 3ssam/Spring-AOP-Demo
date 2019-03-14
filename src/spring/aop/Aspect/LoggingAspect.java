@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-	@Before("execution(* add*(spring.aop.models.Account , ..))")
+	@Before("execution(* add*(..))")
 	public void beforeAddAccountAdvice() {
 		
 		System.out.println("Before Executions ==========> see again");

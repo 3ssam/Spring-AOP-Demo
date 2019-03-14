@@ -22,7 +22,7 @@ public class MainApp {
 		
 		MembershipDAO membershipDAO  = context.getBean("membershipDAO", MembershipDAO.class);
 		// call the business method
-		membershipDAO.addAccount();
+		membershipDAO.addNew();
 		
 		
 		// close the context

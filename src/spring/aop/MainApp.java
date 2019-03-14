@@ -20,6 +20,8 @@ public class MainApp {
 		AccountDAO theDAO = context.getBean("accountDAO", AccountDAO.class);
 		// call the business method
 		Account account = new Account();
+		account.setName("Hafez");
+		account.setLevel("VIP");
 		theDAO.addAccount(account);
 		theDAO.Check();
 		theDAO.Multiple();

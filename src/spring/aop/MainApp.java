@@ -23,6 +23,10 @@ public class MainApp {
 		theDAO.addAccount(account);
 		theDAO.Check();
 		theDAO.Multiple();
+		theDAO.setName("Essam");
+		theDAO.setUser("Micheal");
+		theDAO.getName();
+		theDAO.getUser();
 		
 		MembershipDAO membershipDAO  = context.getBean("membershipDAO", MembershipDAO.class);
 		// call the business method

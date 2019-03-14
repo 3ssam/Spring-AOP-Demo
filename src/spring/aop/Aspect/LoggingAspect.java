@@ -11,14 +11,24 @@ public class LoggingAspect {
 	
 	@Pointcut("execution(* spring.aop.*.*.*(..))")
 	public void aoppackage() {}
+	
+	@Pointcut("execution(* spring.aop.*.*.set*(..))")
+	public void setter() {}
 
-	@Before("aoppackage()")
+	@Pointcut("execution(* spring.aop.*.*.get*(..))")
+	public void getter() {}
+
+	@Pointcut("aoppackage() && !(setter() || getter())")
+	public void AopPackageNoSetterOrGetter() {}
+
+
+	@Before("AopPackageNoSetterOrGetter()")
 	public void beforeAddAccountAdvice() {
 		
 		System.out.println("\nBefore Executions ==========> see again");
 	}
 	
-	@Before("aoppackage()")
+	@Before("AopPackageNoSetterOrGetter()")
 	public void APiValidtion() {
 		
 		System.out.println("\nValidation Before Executions ==========> The Validation Is True");

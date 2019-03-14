@@ -1,5 +1,7 @@
 package spring.aop.DAOS;
 
+import java.util.*;
+
 import org.springframework.stereotype.Component;
 
 import spring.aop.models.Account;
@@ -10,6 +12,16 @@ public class AccountDAO {
 	private String name;
 	private String user;
 	
+	public List<Account> getAllData(){
+		ArrayList<Account> accounts = new ArrayList<>();
+		Account account1 = new Account("Micheal", "VIP");
+		Account account2 = new Account("Essam", "Local");
+		Account account3 = new Account("Hafez", "Premote");
+		accounts.add(account1);
+		accounts.add(account2);
+		accounts.add(account3);
+		return accounts;
+	}
 	public void addAccount(Account account) {
 		System.out.println(getClass()+": DOING MY WORK: ADDINGAN ACCOUNT");
 	}

@@ -5,7 +5,11 @@ public class Account {
 	private String name;
 	private String level;
 	
-	
+	public Account(String name, String level) {
+		super();
+		this.name = name;
+		this.level = level;
+	}
 	public Account() {
 		super();
 	}

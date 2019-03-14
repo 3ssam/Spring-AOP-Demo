@@ -13,7 +13,7 @@ import spring.aop.models.Account;
 @Order(90)
 public class LogToCloudAdvice {
 	
-	@Before("spring.aop.Aspect.HelperMethodsOfAspect.AopPackageNoSetterOrGetter()")
+	//@Before("spring.aop.Aspect.HelperMethodsOfAspect.AopPackageNoSetterOrGetter()")
 	public void CloudValidtion(JoinPoint joinPoint) {
 		System.out.println("\nStarting Cloud ==========> The Cloud Is Run Now");
 		Object[] objects = joinPoint.getArgs();

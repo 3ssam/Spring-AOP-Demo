@@ -1,5 +1,7 @@
 package spring.aop;
 
+import java.util.List;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import spring.aop.DAOS.AccountDAO;
@@ -18,22 +20,11 @@ public class MainApp {
 		
 		
 		AccountDAO theDAO = context.getBean("accountDAO", AccountDAO.class);
-		// call the business method
-		Account account = new Account();
-		account.setName("Hafez");
-		account.setLevel("VIP");
-		theDAO.addAccount(account);
+		theDAO.addAccount(new Account());
 		theDAO.Check();
 		theDAO.Multiple();
-		theDAO.setName("Essam");
-		theDAO.setUser("Micheal");
-		theDAO.getName();
-		theDAO.getUser();
-		
-		MembershipDAO membershipDAO  = context.getBean("membershipDAO", MembershipDAO.class);
-		// call the business method
-		membershipDAO.addNew();
-		membershipDAO.addIntegar(account,2,3);
+		List<Account> c = theDAO.getAllData();
+		System.out.println("Data is ======> "+c);
 		
 		
 		// close the context

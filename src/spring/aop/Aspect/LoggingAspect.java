@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -40,6 +41,15 @@ public class LoggingAspect {
 			account.setName(name);
 			System.out.println("Name = "+account.getName() + "   Level = "+account.getLevel());
 		}
+	}
+
+	@AfterThrowing ( pointcut="execution(* spring.aop.DAOS.AccountDAO.getAllData(..))"
+			,throwing="ex")
+	public void beforeAddAccountAdvice(JoinPoint joinPoint
+			,Exception ex) {
+		System.out.println("\nAfter Exception ==========> \nException is "+ex);
+		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+		System.out.println("Method = "+signature);
 	}
 
 	

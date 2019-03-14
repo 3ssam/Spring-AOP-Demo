@@ -12,7 +12,9 @@ public class AccountDAO {
 	private String name;
 	private String user;
 	
-	public List<Account> getAllData(){
+	public List<Account> getAllData(boolean flag){
+		if (flag)
+			throw new RuntimeException("There are Error yes");
 		ArrayList<Account> accounts = new ArrayList<>();
 		Account account1 = new Account("Micheal", "VIP");
 		Account account2 = new Account("Essam", "Local");

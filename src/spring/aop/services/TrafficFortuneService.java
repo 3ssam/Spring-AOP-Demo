@@ -16,4 +16,11 @@ public class TrafficFortuneService {
 		}
 		return "Traffic is good";
 	}
+	
+	public String getFortune(boolean flag) {
+		if (flag)
+			throw new RuntimeException();
+		return getFortune();
+	}
+
 }

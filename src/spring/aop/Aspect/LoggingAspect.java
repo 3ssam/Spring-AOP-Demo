@@ -65,9 +65,15 @@ public class LoggingAspect {
 	@Around ("execution(* spring.aop.services.*.getFortune(..))")
 	public Object AroundGetFortune(ProceedingJoinPoint point) throws Throwable {
 		MethodSignature signature = (MethodSignature) point.getSignature();
-		System.out.println("\nAfter Finally ==========> Method is = "+signature);
+		System.out.println("\n@Around ==========> Method is = "+signature);
 		long begin = System.currentTimeMillis();
-		Object result = point.proceed();
+		Object result = null;
+		try {
+			result = point.proceed();
+		} catch (Exception e) {
+			System.out.println("\nException is "+e);
+			result = "There Exception is happen";
+		}
 		long end = System.currentTimeMillis();
 		long duration = end - begin;
 		System.out.println("\nDuration is: "+duration/1000.0+" Seconds");

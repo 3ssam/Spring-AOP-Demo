@@ -25,7 +25,7 @@ public class MainApp {
 		
 		System.out.println("Calling getFortune");
 		
-		String datd = service.getFortune();
+		String datd = service.getFortune(true);
 		
 		System.out.println("\nMy Fortune is: "+datd);
 		

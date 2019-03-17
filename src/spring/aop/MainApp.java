@@ -8,6 +8,7 @@ import spring.aop.DAOS.AccountDAO;
 import spring.aop.DAOS.MembershipDAO;
 import spring.aop.config.AOPDemoConfig;
 import spring.aop.models.Account;
+import spring.aop.services.TrafficFortuneService;
 
 public class MainApp {
 
@@ -18,26 +19,18 @@ public class MainApp {
 		new AnnotationConfigApplicationContext(AOPDemoConfig.class);
 		// get the bean from spring container
 		
+		TrafficFortuneService service = context.getBean("trafficFortuneService",TrafficFortuneService.class);
 		
-		AccountDAO theDAO = context.getBean("accountDAO", AccountDAO.class);
-		theDAO.addAccount(new Account());
-		theDAO.Check();
-		theDAO.Multiple();
-		List<Account> c = null;
-		try {
-			c = theDAO.getAllData(false);
-		} catch (Exception e) {
-			System.out.println("Main ======> the error is "+e);
-		}
+		System.out.println("Main Program Start");
 		
-		System.out.println("Data is ======> "+c);
-		//System.out.println("Data is ======> Name = "+c.get(0).getName() + "   Level = "+c.get(0).getLevel());
-		//System.out.println("Data is ======> Name = "+c.get(1).getName() + "   Level = "+c.get(1).getLevel());
-		//System.out.println("Data is ======> Name = "+c.get(2).getName() + "   Level = "+c.get(2).getLevel());
+		System.out.println("Calling getFortune");
 		
+		String datd = service.getFortune();
 		
+		System.out.println("\nMy Fortune is: "+datd);
 		
-		// close the context
+		System.out.println("Finished");
+		
 		context.close();
 	}
 

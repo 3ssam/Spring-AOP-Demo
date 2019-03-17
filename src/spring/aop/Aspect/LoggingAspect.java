@@ -2,10 +2,13 @@ package spring.aop.Aspect;
 
 import java.util.List;
 
+
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -58,6 +61,19 @@ public class LoggingAspect {
 		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 		System.out.println("\nAfter Finally ==========> Method is = "+signature);
 	}
+	
+	@Around ("execution(* spring.aop.services.*.getFortune(..))")
+	public Object AroundGetFortune(ProceedingJoinPoint point) throws Throwable {
+		MethodSignature signature = (MethodSignature) point.getSignature();
+		System.out.println("\nAfter Finally ==========> Method is = "+signature);
+		long begin = System.currentTimeMillis();
+		Object result = point.proceed();
+		long end = System.currentTimeMillis();
+		long duration = end - begin;
+		System.out.println("\nDuration is: "+duration/1000.0+" Seconds");
+		return result;
+	}
+
 
 
 	

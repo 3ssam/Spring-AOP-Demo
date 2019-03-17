@@ -25,7 +25,7 @@ public class MainApp {
 		theDAO.Multiple();
 		List<Account> c = null;
 		try {
-			c = theDAO.getAllData(true);
+			c = theDAO.getAllData(false);
 		} catch (Exception e) {
 			System.out.println("Main ======> the error is "+e);
 		}

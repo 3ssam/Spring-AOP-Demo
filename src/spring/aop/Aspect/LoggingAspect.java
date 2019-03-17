@@ -3,6 +3,7 @@ package spring.aop.Aspect;
 import java.util.List;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -27,7 +28,7 @@ public class LoggingAspect {
 	
 	@AfterReturning ( pointcut="execution(* spring.aop.DAOS.AccountDAO.getAllData(..))"
 			,returning="result")
-	public void beforeAddAccountAdvice(JoinPoint joinPoint
+	public void AfterReturningAccountAdvice(JoinPoint joinPoint
 			,List<Account> result) {
 		System.out.println("\nAfter Executions ==========> \nresult is "+result);
 		ConveretToUpperCase(result);
@@ -45,12 +46,19 @@ public class LoggingAspect {
 
 	@AfterThrowing ( pointcut="execution(* spring.aop.DAOS.AccountDAO.getAllData(..))"
 			,throwing="ex")
-	public void beforeAddAccountAdvice(JoinPoint joinPoint
+	public void AfterThrowingAccountAdvice(JoinPoint joinPoint
 			,Exception ex) {
 		System.out.println("\nAfter Exception ==========> \nException is "+ex);
 		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 		System.out.println("Method = "+signature);
 	}
+	
+	@After ("execution(* spring.aop.DAOS.AccountDAO.getAllData(..))")
+	public void AfterFinallyAccountAdvice(JoinPoint joinPoint) {
+		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+		System.out.println("\nAfter Finally ==========> Method is = "+signature);
+	}
+
 
 	
 }

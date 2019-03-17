@@ -71,8 +71,7 @@ public class LoggingAspect {
 		try {
 			result = point.proceed();
 		} catch (Exception e) {
-			System.out.println("\nException is "+e);
-			result = "There Exception is happen";
+			throw e; 
 		}
 		long end = System.currentTimeMillis();
 		long duration = end - begin;

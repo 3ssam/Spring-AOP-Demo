@@ -1,4 +1,4 @@
-# Spring-AOP-Demo
+# Spring-AOP-Demo-App
 Project to practice on AOP Spring Framework 
 
 
